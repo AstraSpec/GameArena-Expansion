@@ -11,17 +11,56 @@ public class Text
 	// Feel free to more instance variables if you think it will 
 	// support your work... 
 	
-	private double xPosition;			// The X coordinate of the start of this text 
-	private double yPosition;			// The Y coordinate of the start of this text 
-	private int size;					// The font size of this text 
-	private int layer;					// The layer this text is drawn on
-	private String text;				// The actual text to display
-	private String colour;				// The colour of this text
-
+	private String text;				// The actual text to display.
+	private int size;					// The font size of this text.
+	private double xPosition;			// The X coordinate of the start of this text.
+	private double yPosition;			// The Y coordinate of the start of this text.
+	private String colour;				// The colour of this text.
+	private int layer;					// The layer this text is drawn on.
+	
 										// Permissable colours are:
 										// BLACK, BLUE, CYAN, DARKGREY, GREY,
 										// GREEN, DARKGREEN, LIGHTGREY, MAGENTA, ORANGE,
 										// PINK, RED, WHITE, YELLOW, BROWN 
+	
+	/**
+	 * Constructor. Creates a new piece of text at the given coordinates.
+	 *
+	 * @param text The text to display.
+	 * @param size The font size of of the text.
+	 * @param x The x co-ordinate of the text.
+	 * @param y The y co-ordinate of the text.
+	 * @param col The colour of the line (Permissable colours are: BLACK, BLUE, CYAN, DARKGREY, GREY, GREEN, LIGHTGREY, MAGENTA, ORANGE, PINK, RED, WHITE, YELLOW or ##RRGGBB).
+	 * @param layer The layer this line is to be drawn on. Objects with a higher layer number are always drawn on top of those with lower layer numbers. 
+	 */
+	public Text(String text, int size, double x, double y, String col, int layer)
+	{
+		this.text = text;
+		this.size = size;
+		this.xPosition = x;
+		this.yPosition = y;
+		this.colour = col;
+		this.layer = layer;
+	}	
+
+	/**
+	 * Constructor. Creates a new piece of text at the given coordinates.
+	 * 
+	 * @param text The text to display.
+	 * @param size The font size of of the text.
+	 * @param x The x co-ordinate of the text.
+	 * @param y The y co-ordinate of the text.
+	 * @param col The colour of the line (Permissable colours are: BLACK, BLUE, CYAN, DARKGREY, GREY, GREEN, LIGHTGREY, MAGENTA, ORANGE, PINK, RED, WHITE, YELLOW or ##RRGGBB).
+	 */
+	public Text(String text, int size, double x, double y, String col)
+	{
+		this.text = text;
+		this.size = size;
+		this.xPosition = x;
+		this.yPosition = y;
+		this.colour = col;
+		this.layer = 0;
+	}
 
 	/**
 	 * Obtains the position of this text on the X axis.
@@ -88,48 +127,8 @@ public class Text
 	}
 
 	/**
-	 * Constructor. Creates a new piece of text at the given coordinates.
-	 *
-	 * @param text The text to display 
-	 * @param size The font size of of the text
-	 * @param x The x co-ordinate of the text
-	 * @param y The y co-ordinate of the text
-	 * @param col The colour of the line (Permissable colours are: BLACK, BLUE, CYAN, DARKGREY, GREY, GREEN, LIGHTGREY, MAGENTA, ORANGE, PINK, RED, WHITE, YELLOW or ##RRGGBB)
-	 * @param layer The layer this line is to be drawn on. Objects with a higher layer number are always drawn on top of those with lower layer numbers. 
-	 */
-	public Text(String text, int size, double x, double y, String col, int layer)
-	{
-		this.xPosition = x;
-		this.yPosition = y;
-		this.size = size;
-		this.text = text;
-		this.colour = col;
-		this.layer = layer;
-	}	
-
-	/**
-	 * Constructor. Creates a new piece of text at the given coordinates.
-	 * 
-	 * @param text The text to display 
-	 * @param size The font size of of the text
-	 * @param x The x co-ordinate of the text
-	 * @param y The y co-ordinate of the text
-	 * @param col The colour of the line (Permissable colours are: BLACK, BLUE, CYAN, DARKGREY, GREY, GREEN, LIGHTGREY, MAGENTA, ORANGE, PINK, RED, WHITE, YELLOW or ##RRGGBB)
-	 */
-	public Text(String text, int size, double x, double y, String col)
-	{
-		this.xPosition = x;
-		this.yPosition = y;
-		this.size = size;
-		this.text = text;
-		this.colour = col;
-		this.layer = 0;
-	}	
-
-	/**
-	 * Changes the text displayed to that given value
-	 * 
-	 * @param text The text to display
+	 * Changes the text displayed to that given value.
+	 * @param text The text to display.
 	 */
 	public void setText(String text)
 	{
@@ -137,9 +136,8 @@ public class Text
 	}
 
 	/**
-	 * Changes the colour of this text to the given value
-	 * 
-	 * @param colour The new colour of this text. (Permissable colours are: BLACK, BLUE, CYAN, DARKGREY, GREY, GREEN, LIGHTGREY, MAGENTA, ORANGE, PINK, RED, WHITE, YELLOW or #RRGGBB)
+	 * Changes the colour of this text to the given value.
+	 * @param colour The new colour of this text. (Permissable colours are: BLACK, BLUE, CYAN, DARKGREY, GREY, GREEN, LIGHTGREY, MAGENTA, ORANGE, PINK, RED, WHITE, YELLOW or #RRGGBB).
 	 */
 	public void setColour(String colour)
 	{
@@ -147,8 +145,8 @@ public class Text
 	}
 
 	/**
-	 * Moves the current position of this Text to the given co-ordinates
-	 * @param x the new x co-ordinate of this Text
+	 * Moves the current position of this Text to the given co-ordinates.
+	 * @param x the new x co-ordinate of this Text.
 	 */
 	public void setXPosition(double x)
 	{
@@ -156,8 +154,8 @@ public class Text
 	}
 
 	/**
-	 * Moves the current position of this Text to the given co-ordinates
-	 * @param y the new y co-ordinate of this Text
+	 * Moves the current position of this Text to the given co-ordinates.
+	 * @param y the new y co-ordinate of this Text.
 	 */
 	public void setYPosition(double y)
 	{

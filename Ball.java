@@ -10,11 +10,11 @@ public class Ball
 	// Feel free to more instance variables if you think it will 
 	// support your work... 
 	
-	private double xPosition;			// The X coordinate of this Ball
-	private double yPosition;			// The Y coordinate of this Ball
-	private double size;				// The diameter of this Ball
+	private double xPosition;			// The X coordinate of this Ball.
+	private double yPosition;			// The Y coordinate of this Ball.
+	private double size;				// The diameter of this Ball.
 	private int layer;					// The layer of this ball is on.
-	private String colour;				// The colour of this Ball
+	private String colour;				// The colour of this Ball.
 
 										// Permissable colours are:
 										// BLACK, BLUE, CYAN, DARKGREY, GREY,
@@ -23,10 +23,10 @@ public class Ball
 
 	/**
 	 * Constructor. Creates a Ball with the given parameters.
-	 * @param x The x co-ordinate of centre of the Ball (in pixels)
-	 * @param y The y co-ordinate of centre of the Ball (in pixels)
-	 * @param diameter The diameter of the Ball (in pixels)
-	 * @param col The colour of the Ball (Permissable colours are: BLACK, BLUE, CYAN, DARKGREY, GREY, GREEN, LIGHTGREY, MAGENTA, ORANGE, PINK, RED, WHITE, YELLOW or ##RRGGBB)
+	 * @param x The x co-ordinate of centre of the Ball (in pixels).
+	 * @param y The y co-ordinate of centre of the Ball (in pixels).
+	 * @param diameter The diameter of the Ball (in pixels).
+	 * @param col The colour of the Ball (Permissable colours are: BLACK, BLUE, CYAN, DARKGREY, GREY, GREEN, LIGHTGREY, MAGENTA, ORANGE, PINK, RED, WHITE, YELLOW or ##RRGGBB).
 	 */
 	public Ball(double x, double y, double diameter, String col)
 	{
@@ -39,10 +39,10 @@ public class Ball
 
 	/**
 	 * Constructor. Creates a Ball with the given parameters.
-	 * @param x The x co-ordinate of centre of the Ball (in pixels)
-	 * @param y The y co-ordinate of centre of the Ball (in pixels)
-	 * @param diameter The diameter of the Ball (in pixels)
-	 * @param col The colour of the Ball (Permissable colours are: BLACK, BLUE, CYAN, DARKGREY, GREY, GREEN, LIGHTGREY, MAGENTA, ORANGE, PINK, RED, WHITE, YELLOW or ##RRGGBB)
+	 * @param x The x co-ordinate of centre of the Ball (in pixels).
+	 * @param y The y co-ordinate of centre of the Ball (in pixels).
+	 * @param diameter The diameter of the Ball (in pixels).
+	 * @param col The colour of the Ball (Permissable colours are: BLACK, BLUE, CYAN, DARKGREY, GREY, GREEN, LIGHTGREY, MAGENTA, ORANGE, PINK, RED, WHITE, YELLOW or ##RRGGBB).
 	 * @param layer The layer this ball is to be drawn on. Objects with a higher layer number are always drawn on top of those with lower layer numbers.
 	 */
 	public Ball(double x, double y, double diameter, String col, int layer)
@@ -73,8 +73,8 @@ public class Ball
 	}
 
 	/**
-	 * Moves the current position of this Ball to the given co-ordinates
-	 * @param x the new x co-ordinate of this Ball
+	 * Moves the current position of this Ball to the given co-ordinates.
+	 * @param x the new x co-ordinate of this Ball.
 	 */
 	public void setXPosition(double x)
 	{
@@ -82,8 +82,8 @@ public class Ball
 	}
 
 	/**
-	 * Moves the current position of this Ball to the given co-ordinates
-	 * @param y the new y co-ordinate of this Ball
+	 * Moves the current position of this Ball to the given co-ordinates.
+	 * @param y the new y co-ordinate of this Ball.
 	 */
 	public void setYPosition(double y)
 	{
@@ -146,9 +146,8 @@ public class Ball
 
 	/**
 	 * Moves this Ball by the given amount.
-	 * 
-	 * @param dx the distance to move on the x axis (in pixels)
-	 * @param dy the distance to move on the y axis (in pixels)
+	 * @param dx the distance to move on the x axis (in pixels).
+	 * @param dy the distance to move on the y axis (in pixels).
 	 */
 	public void move(double dx, double dy)
 	{
@@ -158,8 +157,7 @@ public class Ball
 
 	/**
 	 * Determines if this Ball is overlapping the given ball.
-	 * 
-	 * @param b the ball to test for collision
+	 * @param b the ball to test for collision.
 	 * @return true of this ball is overlapping the ball b, false otherwise.
 	 */
 	public boolean collides(Ball b)

@@ -13,7 +13,7 @@ import java.lang.reflect.*;
  */
 public class GameArena extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener
 {
-	// Size of playarea
+	// Size of playarea.
 	private JFrame frame;
 	private int arenaWidth;
 	private int arenaHeight;
@@ -103,7 +103,7 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 		colours.put("WHITE", Color.WHITE);
 		colours.put("YELLOW", Color.YELLOW);
 
-		// Setup graphics rendering hints for quality
+		// Setup graphics rendering hints for quality.
 		renderingHints = new HashMap<>();
 		renderingHints.put(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
 		renderingHints.put(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -166,7 +166,7 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 
 	/**
 	 * Set the background of the GameArena window to the specified image file.
-	 * The image will be scaled to fit the size of the GameArena
+	 * The image will be scaled to fit the size of the GameArena.
 	 *
 	 * @param filename the filename of an image to use.
 	 */
@@ -180,7 +180,7 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 	 * Retrieves the JPanel on which this gameArena is drawn, so that it can be integrated into
 	 * a users application.
 	 *
-	 * n.b. This should only be called if this GameArena was constructed without its own JFrame
+	 * n.b. This should only be called if this GameArena was constructed without its own JFrame.
 	 *
 	 * @return the JPanel containing this GameArena.
 	 */
@@ -219,7 +219,7 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 
 		if (frame == null)
 		{
-			// Find the JFrame we have been added to, and attach a KeyListner
+			// Find the JFrame we have been added to, and attach a KeyListner.
 			frame = (JFrame) SwingUtilities.getWindowAncestor(this);
 
 			if (frame != null)
@@ -296,7 +296,7 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 	}
 
 	//
-	// Shouldn't really handle colour this way, but the student's haven't been introduced
+	// Shouldn't really handle colour this way, but the student's haven't been introduced.
 	// to constants properly yet, hmmm....
 	//
 	private Color getColourFromString(String col)
@@ -519,11 +519,10 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 	/**
 	 * Pause for a 1/50 of a second.
 	 * This method causes your program to delay for 1/50th of a second. You'll find this useful if you're trying to animate your application.
-	 *
 	 */
 	public void pause()
 	{
-		try { Thread.sleep(5); }
+		try { Thread.sleep(20); }
 		catch (Exception e) {};
 	}
 

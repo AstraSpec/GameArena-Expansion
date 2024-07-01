@@ -12,49 +12,47 @@ public class Sprite
 	// Feel free to more instance variables if you think it will 
 	// support your work... 
 	
-	private double xPosition;			// The X coordinate of this Sprite
-	private double yPosition;			// The Y coordinate of this Sprite
-	private double width;				// The width of this Sprite
-	private double height;				// The height of this Sprite
-	private BufferedImage img;          // The image displayed by this Sprite
-	private int layer;				    // The layer this Sprite is on
-
-	public Sprite() {}	
+	private BufferedImage img;          // The image displayed by this Sprite.
+	private double xPosition;			// The X coordinate of this Sprite.
+	private double yPosition;			// The Y coordinate of this Sprite.
+	private double width;				// The width of this Sprite.
+	private double height;				// The height of this Sprite.
+	private int layer;				    // The layer this Sprite is on.
 	
 	/**
 	 * Constructor. Creates a Sprite with the given parameters.
-	 * @param x The x co-ordinate position of top left corner of the Sprite (in pixels)
-	 * @param y The y co-ordinate position of top left corner of the Sprite (in pixels)
-	 * @param w The width of the Sprite (in pixels)
-	 * @param h The height of the Sprite (in pixels)
-	 * @param i The image of the Sprite
+	 * @param i The image of the Sprite.
+	 * @param x The x co-ordinate position of top left corner of the Sprite (in pixels).
+	 * @param y The y co-ordinate position of top left corner of the Sprite (in pixels).
+	 * @param w The width of the Sprite (in pixels).
+	 * @param h The height of the Sprite (in pixels).
 	 */
-	public Sprite(double x, double y, double w, double h, BufferedImage i)
+	public Sprite(BufferedImage i, double x, double y, double w, double h)
 	{
+		this.img = i;
 		this.xPosition = x;
 		this.yPosition = y;
 		this.width = w;
 		this.height = h;
-		this.img = i;
 		this.layer = 0;
 	}
 									
 	/**
 	 * Constructor. Creates a Sprite with the given parameters.
-	 * @param x The x co-ordinate position of top left corner of the Sprite (in pixels)
-	 * @param y The y co-ordinate position of top left corner of the Sprite (in pixels)
-	 * @param w The width of the Sprite (in pixels)
-	 * @param h The height of the Sprite (in pixels)
-	 * @param i The image of the Sprite
+	 * @param i The image of the Sprite.
+	 * @param x The x co-ordinate position of top left corner of the Sprite (in pixels).
+	 * @param y The y co-ordinate position of top left corner of the Sprite (in pixels).
+	 * @param w The width of the Sprite (in pixels).
+	 * @param h The height of the Sprite (in pixels).
 	 * @param layer The layer this Sprite is to be drawn on. Objects with a higher layer number are always drawn on top of those with lower layer numbers.
 	 */
-	public Sprite(double x, double y, double w, double h, BufferedImage i, int layer)
+	public Sprite(BufferedImage i, double x, double y, double w, double h, int layer)
 	{
+		this.img = i;
 		this.xPosition = x;
 		this.yPosition = y;
 		this.width = w;
 		this.height = h;
-		this.img = i;
 		this.layer = layer;
 	}
 			
@@ -159,9 +157,8 @@ public class Sprite
 
 	/**
 	 * Moves this Sprite by the given amount.
-	 * 
-	 * @param dx the distance to move on the x axis (in pixels)
-	 * @param dy the distance to move on the y axis (in pixels)
+	 * @param dx the distance to move on the x axis (in pixels).
+	 * @param dy the distance to move on the y axis (in pixels).
 	 */
 	public void move(double dx, double dy)
 	{
@@ -171,8 +168,7 @@ public class Sprite
 
 	/**
 	 * Determines if this Sprite is overlapping the given sprite.
-	 * 
-	 * @param s the sprite to test for collision
+	 * @param s the sprite to test for collision.
 	 * @return true of this sprite is overlapping the sprite s, false otherwise.
 	 */
 	public boolean collides(Sprite s)
