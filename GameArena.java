@@ -77,7 +77,7 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 		if (createWindow)
 		{
 			this.frame = new JFrame();
-			frame.setTitle("Let's Play!");
+			frame.setTitle("Game Arena Expansion");
 			frame.setSize(width, height);
 			frame.setResizable(false);
 			frame.setBackground(Color.BLACK);
@@ -253,6 +253,13 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 						graphics.fillRect((int)r.getXPosition(), (int)r.getYPosition(), (int)r.getWidth(), (int)r.getHeight());
 					}
 
+					if (o instanceof Sprite)
+					{
+						Sprite s = (Sprite) o;
+						
+						graphics.drawImage((BufferedImage)s.getImage(), (int)s.getXPosition(), (int)s.getYPosition(), (int)s.getWidth(), (int)s.getHeight(), null);
+					}
+
 					if (o instanceof Line)
 					{
 						Line l = (Line) o;
@@ -350,6 +357,9 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 
 					if (obj instanceof Rectangle)
 						l = ((Rectangle)obj).getLayer();
+					
+					if (obj instanceof Sprite)
+						l = ((Sprite)obj).getLayer();
 
 					if (obj instanceof Line)
 						l = ((Line)obj).getLayer();
@@ -408,6 +418,17 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 	}
 
 	/**
+	 * Adds a given Sprite to the GameArena.
+	 * Once a sprite is added, it will automatically appear on the window.
+	 *
+	 * @param s the sprite to add to the GameArena.
+	 */
+	public void addSprite(Sprite s)
+	{
+		this.addThing(s, s.getLayer());
+	}
+
+	/**
 	 * Adds a given Line to the GameArena.
 	 * Once a Line is added, it will automatically appear on the window.
 	 *
@@ -439,6 +460,17 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 	public void removeRectangle(Rectangle r)
 	{
 		this.removeObject(r);
+	}
+
+	/**
+	 * Remove a Sprite from the GameArena.
+	 * Once a Sprite is removed, it will no longer appear on the window.
+	 *
+	 * @param s the sprite to remove from the GameArena.
+	 */
+	public void removeSprite(Sprite s)
+	{
+		this.removeObject(s);
 	}
 
 	/**
@@ -491,7 +523,7 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 	 */
 	public void pause()
 	{
-		try { Thread.sleep(20); }
+		try { Thread.sleep(5); }
 		catch (Exception e) {};
 	}
 

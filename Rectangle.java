@@ -14,7 +14,7 @@ public class Rectangle
 	private double yPosition;			// The Y coordinate of this Rectangle
 	private double width;				// The width of this Rectangle
 	private double height;				// The height of this Rectangle
-	private int layer;				// The layer this Rectangle is on.
+	private int layer;					// The layer this Rectangle is on.
 	private String colour;				// The colour of this Rectangle
 
 										// Permissable colours are:
