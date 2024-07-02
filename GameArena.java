@@ -139,7 +139,8 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 				this.repaint();
 				Thread.sleep(10);
 			}
-		} catch (InterruptedException iex) {}
+		} 
+		catch (InterruptedException iex) {}
 
 		if (frame != null)
 			frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
@@ -160,8 +161,6 @@ public class GameArena extends JPanel implements Runnable, KeyListener, MouseLis
 
 		if (frame != null)
 			frame.setSize(arenaWidth + frame.getInsets().left + frame.getInsets().right, arenaHeight + frame.getInsets().top + frame.getInsets().bottom);
-
-
 	}
 
 	/**
