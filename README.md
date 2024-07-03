@@ -2,11 +2,11 @@
 GameArena-Expansion
 
 Planned features:
-- Images
+Images:
 * Get images using URLs
 * Modulate colour
 
-- Sounds
+Sounds:
 * Get sounds using URLs
 * Playback speed control
 * Dynamic sound effects (echo, reverb)
