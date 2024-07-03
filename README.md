@@ -12,5 +12,4 @@ Sounds:
 * Dynamic sound effects (echo, reverb)
 * Get duration and current position
 * ListenerEvent when sound ends
-* Playing() function
 * ? Reverse

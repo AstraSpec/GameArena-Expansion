@@ -3,6 +3,8 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.File;
+import java.net.URI;
+import java.net.URL;
 
 /**
  * Models a simple sound effect. 
@@ -16,27 +18,36 @@ public class Sound
 	// Feel free to more instance variables if you think it will 
 	// support your work... 
 	
-	private String soundFile;			// The name of the sound file to play.
+	private String soundSource;			// The name of the sound file or URL to play.
 	private boolean loop;				// Whether the sound should loop or not.
 	private Clip clip;					// The sound clip to play.
 	private float volume;				// The volume control for the sound.
 	
 	/**
 	 * Constructor. Creates a new sound effect.
-	 * @param sFile The name of the sound file to play.
+	 * @param source The file or URL to play.
 	 * @param loop Whether the sound should loop or not.
 	 * @param volume The volume of the sound (1.0f for default, 0.0f for mute, 2.0f for double).
 	 */
-	public Sound(String sFile, boolean loop, float volume)
+	public Sound(String source, boolean loop, float volume)
 	{
-		this.soundFile = sFile;
+		this.soundSource = source;
 		this.loop = loop;
 		this.volume = volume;
 		
 		try {
-			// Gets audio stream from file
-			File soundFile = new File(this.soundFile);
-			AudioInputStream audioInput = AudioSystem.getAudioInputStream(soundFile);
+			AudioInputStream audioInput;
+			
+			if (source.startsWith("http://") || source.startsWith("https://")) {
+				// Obtains audio stream from URL
+				URL soundURL = URI.create(source).toURL();
+				audioInput = AudioSystem.getAudioInputStream(soundURL);
+			} else {
+				// Obtains audio stream from file
+				File soundFile = new File(source);
+				audioInput = AudioSystem.getAudioInputStream(soundFile);
+			}
+
 			// Gets sound clip resource
 			this.clip = AudioSystem.getClip();
 			// Opens audio input stream
@@ -83,6 +94,24 @@ public class Sound
 	{
 		clip.stop();
 		clip.close();
+	}
+
+	/**
+	 * Checks if sound is playing.
+	 * @return True if sound is playing, false otherwise.
+	 */
+	public boolean isPlaying()
+	{
+		return clip.isRunning();
+	}
+
+	/**
+	 * Obtains the name of the sound file.
+	 * @return The name of the sound file.
+	 */
+	public String getSource()
+	{
+		return this.soundSource;
 	}
 
 	/**
