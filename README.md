@@ -7,9 +7,8 @@ Images:
 * Modulate colour
 
 Sounds:
-* Get sounds using URLs
-* Playback speed control
-* Dynamic sound effects (echo, reverb)
 * Get duration and current position
 * ListenerEvent when sound ends
 * ? Reverse
+* Verify source integrity
+* List supported file types

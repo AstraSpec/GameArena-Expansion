@@ -1,4 +1,9 @@
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
+import javax.imageio.ImageIO;
 
 /**
  * Models a simple sprite. 
@@ -12,7 +17,8 @@ public class Sprite
 	// Feel free to more instance variables if you think it will 
 	// support your work... 
 	
-	private BufferedImage img;          // The image displayed by this Sprite.
+	private String source;		        // The filepath or URL of the image displayed by this Sprite.
+	private BufferedImage img;			// The image displayed by this Sprite.
 	private double xPosition;			// The X coordinate of this Sprite.
 	private double yPosition;			// The Y coordinate of this Sprite.
 	private double width;				// The width of this Sprite.
@@ -21,39 +27,90 @@ public class Sprite
 	
 	/**
 	 * Constructor. Creates a Sprite with the given parameters.
-	 * @param i The image of the Sprite.
+	 * @param s The source of the Sprite.
 	 * @param x The x co-ordinate position of top left corner of the Sprite (in pixels).
 	 * @param y The y co-ordinate position of top left corner of the Sprite (in pixels).
 	 * @param w The width of the Sprite (in pixels).
 	 * @param h The height of the Sprite (in pixels).
 	 */
-	public Sprite(BufferedImage i, double x, double y, double w, double h)
+	public Sprite(String s, double x, double y, double w, double h)
 	{
-		this.img = i;
+		this.source = s;
 		this.xPosition = x;
 		this.yPosition = y;
 		this.width = w;
 		this.height = h;
 		this.layer = 0;
+
+		setSource(s);
 	}
 									
 	/**
 	 * Constructor. Creates a Sprite with the given parameters.
-	 * @param i The image of the Sprite.
+	 * @param s The source of the Sprite.
 	 * @param x The x co-ordinate position of top left corner of the Sprite (in pixels).
 	 * @param y The y co-ordinate position of top left corner of the Sprite (in pixels).
 	 * @param w The width of the Sprite (in pixels).
 	 * @param h The height of the Sprite (in pixels).
 	 * @param layer The layer this Sprite is to be drawn on. Objects with a higher layer number are always drawn on top of those with lower layer numbers.
 	 */
-	public Sprite(BufferedImage i, double x, double y, double w, double h, int layer)
+	public Sprite(String s, double x, double y, double w, double h, int layer)
 	{
-		this.img = i;
 		this.xPosition = x;
 		this.yPosition = y;
 		this.width = w;
 		this.height = h;
 		this.layer = layer;
+
+		setSource(s);
+	}
+
+	/**
+	 * Obtains the source of this Sprite.
+	 * @return the source of this Sprite.
+	 */
+	public String getSource()
+	{
+		return source;
+	}
+
+	/**
+	 * Sets the source of this Sprite.
+	 * @param s the new source of this Sprite.
+	 */
+	public void setSource(String s)
+	{
+		source = s;
+		try {
+			if (source.startsWith("http://") || source.startsWith("https://")) {
+				URL url = URI.create(source).toURL();
+				img = ImageIO.read(url);
+			} 
+			else {
+				img = ImageIO.read(new File(source));
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Obtains the image of this Sprite.
+	 * @return the image of this Sprite.
+	 */
+	public BufferedImage getImage()
+	{
+		return img;
+	}
+
+	/**
+	 * Sets the image of this Sprite.
+	 * @param i the new image of this Sprite.
+	 */
+	public void setImage(BufferedImage i)
+	{
+		img = i;
 	}
 			
 	/**
@@ -126,24 +183,6 @@ public class Sprite
 	public void setHeight(double h)
 	{
 		height = h;
-	}
-
-	/**
-	 * Obtains the image of this Sprite.
-	 * @return the image of this Sprite.
-	 */
-	public BufferedImage getImage()
-	{
-		return img;
-	}
-
-	/**
-	 * Sets the image of this Sprite.
-	 * @param i the new image of this Sprite.
-	 */
-	public void setImage(BufferedImage i)
-	{
-		img = i;
 	}
 
 	/**
