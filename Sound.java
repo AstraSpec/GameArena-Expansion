@@ -22,6 +22,11 @@ public class Sound
 	private boolean loop;				// Whether the sound should loop or not.
 	private Clip clip;					// The sound clip to play.
 	private float volume;				// The volume control for the sound.
+
+										// Permissable file types are:
+										// .AIFF 
+										// .AU
+										// .WAV
 	
 	/**
 	 * Constructor. Creates a new sound effect.
@@ -38,13 +43,24 @@ public class Sound
 		try {
 			AudioInputStream audioInput;
 			
-			if (source.startsWith("http://") || source.startsWith("https://")) {
+			if (source.startsWith("http://") || source.startsWith("https://"))
+			{
 				// Obtains audio stream from URL
 				URL soundURL = URI.create(source).toURL();
 				audioInput = AudioSystem.getAudioInputStream(soundURL);
-			} else {
+			}
+			else
+			{
 				// Obtains audio stream from file
 				File soundFile = new File(source);
+
+				// Checks if file exists
+				if (!soundFile.exists())
+				{
+					System.out.println("Error: Sound file not found.");
+					return;
+				}
+
 				audioInput = AudioSystem.getAudioInputStream(soundFile);
 			}
 
@@ -103,6 +119,33 @@ public class Sound
 	public boolean isPlaying()
 	{
 		return clip.isRunning();
+	}
+
+	/**
+	 * Obtains the length of the sound effect, in sample frames.
+	 * @return The length of the sound effect, in sample frames.
+	 */
+	public int getLength()
+	{
+		return clip.getFrameLength();
+	}
+
+	/**
+	 * Obtains the position playing in the sound effect, in sample frames.
+	 * @return The position playing in the sound effect, in sample frames.
+	 */
+	public int getPosition()
+	{
+		return clip.getFramePosition();
+	}
+
+	/**
+	 * Sets the position playing in the sound effect, in sample frames.
+	 * @param p The new position playing in the sound effect, in sample frames.
+	 */
+	public void setPosition(int p)
+	{
+		clip.setFramePosition(p);
 	}
 
 	/**

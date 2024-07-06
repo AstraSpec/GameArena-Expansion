@@ -1,6 +1,5 @@
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
 import javax.imageio.ImageIO;
@@ -82,15 +81,26 @@ public class Sprite
 	{
 		source = s;
 		try {
-			if (source.startsWith("http://") || source.startsWith("https://")) {
+			if (source.startsWith("http://") || source.startsWith("https://"))
+			{
+				// Obtains image from URL
 				URL url = URI.create(source).toURL();
 				img = ImageIO.read(url);
 			} 
-			else {
+			else 
+			{
+				// Obtains image from file
 				img = ImageIO.read(new File(source));
+
+				// Checks if file exists
+				if (img == null) 
+				{
+					System.out.println("Error: Image file not found.");
+					return;
+				}
 			}
 
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
