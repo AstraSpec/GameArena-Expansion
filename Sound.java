@@ -21,7 +21,7 @@ public class Sound
 	private String soundSource;			// The name of the sound file or URL to play.
 	private boolean loop;				// Whether the sound should loop or not.
 	private Clip clip;					// The sound clip to play.
-	private float volume;				// The volume control for the sound.
+	private float volume;				// The volume of the sound (1.0f for default, 0.0f for mute, 2.0f for double).
 
 										// Permissable file types are:
 										// .AIFF 
