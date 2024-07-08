@@ -1,5 +1,2 @@
 # GameArena-Expansion
-GameArena-Expansion
-
-Planned features:
-* ListenerEvent when sound ends
+GameArena-Expansion for students looking to add additional features to their game.
